@@ -31,21 +31,21 @@ Each takes about 30 minutes per target on my machine, but the resolutions can be
 * [`src/`](https://github.com/cajohare/NeutrinoFog/tree/main/src) - Contains python and fortran code to produce the main results
 * [`plots/`](https://github.com/cajohare/NeutrinoFog/tree/main/plots) - Contains all the plots in pdf and png formats
 * [`notebooks/`](https://github.com/cajohare/NeutrinoFog/tree/main/notebooks) - Jupyter notebooks for plotting results
-* [`data/`](https://github.com/cajohare/NeutrinoFog/tree/main/notebooks) - data files, including neutrino fluxes, experimental exclusion limits, and the data produced by this code
+* [`data/`](https://github.com/cajohare/NeutrinoFog/tree/main/data) - data files, including neutrino fluxes, experimental exclusion limits, and the data produced by this code
 
 # Python modules
-* [`WIMPFuncs.py`](https://github.com/cajohare/NeutrinoFog/blob/master/code/WIMPFuncs.py) - Functions needed to calculate WIMP rates
-* [`NeutrinoFuncs.py`](https://github.com/cajohare/NeutrinoFog/blob/master/code/NeutrinoFuncs.py) - Functions needed to calculate neutrino rates
-* [`Like.py`](https://github.com/cajohare/NeutrinoFog/blob/master/code/Like.py) - Functions for wrapping and running the likelihood code
-* [`LabFuncs.py`](https://github.com/cajohare/NeutrinoFog/blob/master/code/LabFuncs.py) - Various utilities
-* [`PlotFuncs.py`](https://github.com/cajohare/NeutrinoFog/blob/master/code/PlotFuncs.py) - Plotting functions
+* [`WIMPFuncs.py`](https://github.com/cajohare/NeutrinoFog/blob/master/src/WIMPFuncs.py) - Functions needed to calculate WIMP rates
+* [`NeutrinoFuncs.py`](https://github.com/cajohare/NeutrinoFog/blob/master/src/NeutrinoFuncs.py) - Functions needed to calculate neutrino rates
+* [`Like.py`](https://github.com/cajohare/NeutrinoFog/blob/master/src/Like.py) - Functions for wrapping and running the likelihood code
+* [`LabFuncs.py`](https://github.com/cajohare/NeutrinoFog/blob/master/src/LabFuncs.py) - Various utilities
+* [`PlotFuncs.py`](https://github.com/cajohare/NeutrinoFog/blob/master/src/PlotFuncs.py) - Plotting functions
 
 # Notebooks
-* [`Main.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/master/code/Main.ipynb) - Figures 1 and 3b of the paper
-* [`Explanation.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/master/code/Explanation.ipynb) - Figure 2
-* [`SI.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/master/code/SI.ipynb) - Figure 3a and S1
-* [`SDp.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/master/code/SDp.ipynb) - Figure S2a
-* [`SDn.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/master/code/SDn.ipynb) - Figure S2b
+* [`Main.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/master/notebooks/Main.ipynb) - Figures 1 and 3b of the paper
+* [`Explanation.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/master/notebooks/Explanation.ipynb) - Figure 2
+* [`SI.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/master/notebooks/SI.ipynb) - Figure 3a and S1
+* [`SDp.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/master/notebooks/SDp.ipynb) - Figure S2a
+* [`SDn.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/master/notebooks/SDn.ipynb) - Figure S2b
 
 ---
 
