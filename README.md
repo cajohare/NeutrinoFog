@@ -42,7 +42,7 @@ Each takes about 30 minutes per target on my machine, but the resolutions can be
 
 # Notebooks
 * [`Main.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/main/notebooks/Main.ipynb) - Figures 1 and 3b of the paper
-* [`Explanation.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/main/notebooks/Explanation.ipynb) - Figure 2
+* [`ExplanationFigure.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/main/notebooks/ExplanationFigure.ipynb) - Figure 2
 * [`SI.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/main/notebooks/SI.ipynb) - Figure 3a and S1
 * [`SDp.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/main/notebooks/SDp.ipynb) - Figure S2a
 * [`SDn.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/main/notebooks/SDn.ipynb) - Figure S2b
@@ -70,7 +70,6 @@ Each takes about 30 minutes per target on my machine, but the resolutions can be
 * Xenon: [Xe_SDn.txt](https://raw.githubusercontent.com/cajohare/NeutrinoFog/master/data/floors/Xe_SDn.txt)
 * Germanium: [Ge_SDn.txt](https://raw.githubusercontent.com/cajohare/NeutrinoFog/master/data/floors/Ge_SDn.txt)
 * Silicon: [Si_SDn.txt](https://raw.githubusercontent.com/cajohare/NeutrinoFog/master/data/floors/Si_SDn.txt)
-* Fluorine: [F_SDn.txt](https://raw.githubusercontent.com/cajohare/NeutrinoFog/master/data/floors/F_SDn.txt)
 * NaI: [NaI_SDn.txt](https://raw.githubusercontent.com/cajohare/NeutrinoFog/master/data/floors/NaI_SDn.txt)
 
 ---
