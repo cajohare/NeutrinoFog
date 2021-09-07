@@ -1,0 +1,79 @@
+#==============================================================================#
+import sys
+import os
+sys.path.append('../src')
+from numpy import *
+from Params import *
+from NeutrinoFuncs import BinnedNeutrinoRates
+from WIMPFuncs import BinnedWIMPRate,MeanInverseSpeed_SHM,C_SI,FormFactorHelm
+from Like import runDL
+#==============================================================================#
+ne = 50
+nm = 200
+n_ex = 50
+E_th = 1.0e-4
+E_max = 200.0
+m_vals = logspace(log10(0.1),log10(1.0e4),nm)
+Flux_norm = NuFlux
+Flux_err = NuUnc
+#==============================================================================#
+# Input
+print(sys.argv[1])
+if sys.argv[1]=='Xe':
+    ex_min=1.0e-5
+    ex_max=1.0e3
+    inp = 'NuFloorTargets_Xe'
+    Nuc = Xe131
+elif (sys.argv[1])=='Ar':
+    ex_min=1.0e-3
+    ex_max=1.0e4
+    inp = 'NuFloorTargets_Ar'
+    Nuc = Ar40
+elif (sys.argv[1])=='CaWO4':
+    ex_min=1.0e-5
+    ex_max=1.0e4
+    inp = 'NuFloorTargets_CaWO4'
+    Nucs = [Ca40,W184,O16]
+elif (sys.argv[1])=='F':
+    ex_min=1.0e-3
+    ex_max=1.0e4
+    inp = 'NuFloorTargets_F'
+    Nuc = F19
+elif (sys.argv[1])=='He':
+    ex_min=1.0e-3
+    ex_max=1.0e4
+    inp = 'NuFloorTargets_He'
+    Nuc = He4
+elif (sys.argv[1])=='Ge':
+    ex_min=1.0e-5
+    ex_max=1.0e4
+    inp = 'NuFloorTargets_Ge'
+    Nuc = Ge74
+elif (sys.argv[1])=='NaI':
+    ex_min=1.0e-5
+    ex_max=1.0e4
+    inp = 'NuFloorTargets_NaI'
+    Nucs = [Na22,I127]
+
+if (sys.argv[1])=='CaWO4':
+    f0 = 40/(40+184+4*16)
+    f1 = 184/(40+184+4*16)
+    f2 = 4*16/(40+184+4*16)
+    R_sig = f0*BinnedWIMPRate(E_th,E_max,ne,m_vals,Nucs[0],C_SI,FormFactorHelm,MeanInverseSpeed_SHM)
+    R_sig += f1*BinnedWIMPRate(E_th,E_max,ne,m_vals,Nucs[1],C_SI,FormFactorHelm,MeanInverseSpeed_SHM)
+    R_sig += f2*BinnedWIMPRate(E_th,E_max,ne,m_vals,Nucs[2],C_SI,FormFactorHelm,MeanInverseSpeed_SHM)
+    R_nu = f0*BinnedNeutrinoRates(E_th,E_max,ne,Nucs[0],Flux_norm)
+    R_nu += f1*BinnedNeutrinoRates(E_th,E_max,ne,Nucs[1],Flux_norm)
+    R_nu += f2*BinnedNeutrinoRates(E_th,E_max,ne,Nucs[2],Flux_norm)
+elif sys.argv[1]=='NaI':
+    f0 = 22/(22+127)
+    f1 = 127/(22+127)
+    R_sig = f0*BinnedWIMPRate(E_th,E_max,ne,m_vals,Nucs[0],C_SI,FormFactorHelm,MeanInverseSpeed_SHM)
+    R_sig += f1*BinnedWIMPRate(E_th,E_max,ne,m_vals,Nucs[1],C_SI,FormFactorHelm,MeanInverseSpeed_SHM)
+    R_nu = f0*BinnedNeutrinoRates(E_th,E_max,ne,Nucs[0],Flux_norm)
+    R_nu += f1*BinnedNeutrinoRates(E_th,E_max,ne,Nucs[1],Flux_norm)
+else:
+    R_sig = BinnedWIMPRate(E_th,E_max,ne,m_vals,Nuc,C_SI,FormFactorHelm,MeanInverseSpeed_SHM)
+    R_nu = BinnedNeutrinoRates(E_th,E_max,ne,Nuc,Flux_norm)
+
+runDL(inp,R_sig,R_nu,m_vals,ex_min,ex_max,n_ex,Flux_norm,Flux_err,verbose=False)

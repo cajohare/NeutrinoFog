@@ -1,0 +1,44 @@
+# Set default figure size
+figure.figsize : 13, 12
+
+# Set x axis
+xtick.major.size : 15
+xtick.major.width : 2
+xtick.minor.size : 10
+xtick.minor.width : 1
+xtick.direction : in
+xtick.top : True
+
+# Set y axis
+ytick.major.size : 15
+ytick.major.width : 2
+ytick.minor.size : 10
+ytick.minor.width : 1
+ytick.direction : in
+ytick.right : True
+
+# Fontsizes
+xtick.labelsize : 30
+ytick.labelsize : 30
+xtick.major.pad : 7
+legend.fontsize : 35
+legend.title_fontsize : 35
+axes.titlesize : 35
+axes.labelsize : 45
+
+# Line widths
+axes.linewidth : 2.5
+grid.linewidth : 1
+lines.linewidth : 3
+
+# Font style
+font.family : serif
+text.usetex : True
+font.size:    28.0
+
+# margins
+axes.xmargin : 0
+axes.ymargin : 0
+
+# Legend
+legend.frameon : False
