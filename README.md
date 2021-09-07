@@ -3,11 +3,8 @@
 
 # NeutrinoFog
 Code to reproduce the results from my paper arXiv:[2109.XXXX]
-
-[<img align="right" src="plots/plots_png/NuFloorExplanation.png" height="350">](https://github.com/cajohare/NeutrinoFog/raw/master/plots/plots_png/NuFloorExplanation.png)
-### &nbsp;
-### &nbsp;
 ---
+[<img align="right" src="plots/plots_png/NuFloorExplanation.png" height="350">](https://github.com/cajohare/NeutrinoFog/raw/master/plots/plots_png/NuFloorExplanation.png)
 
 # Requirements
 * [`CMasher`](https://cmasher.readthedocs.io/)
