@@ -34,44 +34,44 @@ Each takes about 30 minutes per target on my machine, but the resolutions can be
 * [`data/`](https://github.com/cajohare/NeutrinoFog/tree/main/data) - data files, including neutrino fluxes, experimental exclusion limits, and the data produced by this code
 
 # Python modules
-* [`WIMPFuncs.py`](https://github.com/cajohare/NeutrinoFog/blob/master/src/WIMPFuncs.py) - Functions needed to calculate WIMP rates
-* [`NeutrinoFuncs.py`](https://github.com/cajohare/NeutrinoFog/blob/master/src/NeutrinoFuncs.py) - Functions needed to calculate neutrino rates
-* [`Like.py`](https://github.com/cajohare/NeutrinoFog/blob/master/src/Like.py) - Functions for wrapping and running the likelihood code
-* [`LabFuncs.py`](https://github.com/cajohare/NeutrinoFog/blob/master/src/LabFuncs.py) - Various utilities
-* [`PlotFuncs.py`](https://github.com/cajohare/NeutrinoFog/blob/master/src/PlotFuncs.py) - Plotting functions
+* [`WIMPFuncs.py`](https://github.com/cajohare/NeutrinoFog/blob/main/src/WIMPFuncs.py) - Functions needed to calculate WIMP rates
+* [`NeutrinoFuncs.py`](https://github.com/cajohare/NeutrinoFog/blob/main/src/NeutrinoFuncs.py) - Functions needed to calculate neutrino rates
+* [`Like.py`](https://github.com/cajohare/NeutrinoFog/blob/main/src/Like.py) - Functions for wrapping and running the likelihood code
+* [`LabFuncs.py`](https://github.com/cajohare/NeutrinoFog/blob/main/src/LabFuncs.py) - Various utilities
+* [`PlotFuncs.py`](https://github.com/cajohare/NeutrinoFog/blob/main/src/PlotFuncs.py) - Plotting functions
 
 # Notebooks
-* [`Main.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/master/notebooks/Main.ipynb) - Figures 1 and 3b of the paper
-* [`Explanation.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/master/notebooks/Explanation.ipynb) - Figure 2
-* [`SI.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/master/notebooks/SI.ipynb) - Figure 3a and S1
-* [`SDp.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/master/notebooks/SDp.ipynb) - Figure S2a
-* [`SDn.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/master/notebooks/SDn.ipynb) - Figure S2b
+* [`Main.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/main/notebooks/Main.ipynb) - Figures 1 and 3b of the paper
+* [`Explanation.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/main/notebooks/Explanation.ipynb) - Figure 2
+* [`SI.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/main/notebooks/SI.ipynb) - Figure 3a and S1
+* [`SDp.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/main/notebooks/SDp.ipynb) - Figure S2a
+* [`SDn.ipynb`](https://github.com/cajohare/NeutrinoFog/blob/main/notebooks/SDn.ipynb) - Figure S2b
 
 ---
 
 # If you just want .txt files for the neutrino floors themselves here they are:
 ## Spin independent
-* Xenon: [Xe_SI.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/Xe_SI.txt)
-* Germanium: [Ge_SI.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/Ge_SI.txt)
-* Argon: [Ar_SI.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/Ar_SI.txt)
-* Helium: [He_SI.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/He_SI.txt)
-* Fluorine: [F_SI.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/F_SI.txt)
-* CaWO4: [CaWO4_SI.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/CaWO4_SI.txt)
-* NaI: [NaI_SI.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NaI_SI.txt)
+* Xenon: [Xe_SI.txt](https://raw.githubusercontent.com/cajohare/NeutrinoFog/master/data/floors/Xe_SI.txt)
+* Germanium: [Ge_SI.txt](https://raw.githubusercontent.com/cajohare/NeutrinoFog/master/data/floors/Ge_SI.txt)
+* Argon: [Ar_SI.txt](https://raw.githubusercontent.com/cajohare/NeutrinoFog/master/data/floors/Ar_SI.txt)
+* Helium: [He_SI.txt](https://raw.githubusercontent.com/cajohare/NeutrinoFog/master/data/floors/He_SI.txt)
+* Fluorine: [F_SI.txt](https://raw.githubusercontent.com/cajohare/NeutrinoFog/master/data/floors/F_SI.txt)
+* CaWO4: [CaWO4_SI.txt](https://raw.githubusercontent.com/cajohare/NeutrinoFog/master/data/floors/CaWO4_SI.txt)
+* NaI: [NaI_SI.txt](https://raw.githubusercontent.com/cajohare/NeutrinoFog/master/data/floors/NaI_SI.txt)
 
 ## Spin dependent (proton)
-* Xenon: [Xe_SDp.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/Xe_SDp.txt)
-* Germanium: [Ge_SDp.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/Ge_SDp.txt)
-* Silicon: [Si_SDp.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/Si_SDp.txt)
-* Fluorine: [F_SDp.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/F_SDp.txt)
-* NaI: [NaI_SDp.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NaI_SDp.txt)
+* Xenon: [Xe_SDp.txt](https://raw.githubusercontent.com/cajohare/NeutrinoFog/master/data/floors/Xe_SDp.txt)
+* Germanium: [Ge_SDp.txt](https://raw.githubusercontent.com/cajohare/NeutrinoFog/master/data/floors/Ge_SDp.txt)
+* Silicon: [Si_SDp.txt](https://raw.githubusercontent.com/cajohare/NeutrinoFog/master/data/floors/Si_SDp.txt)
+* Fluorine: [F_SDp.txt](https://raw.githubusercontent.com/cajohare/NeutrinoFog/master/data/floors/F_SDp.txt)
+* NaI: [NaI_SDp.txt](https://raw.githubusercontent.com/cajohare/NeutrinoFog/master/data/floors/NaI_SDp.txt)
 
 ## Spin dependent (neutron)
-* Xenon: [Xe_SDn.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/Xe_SDn.txt)
-* Germanium: [Ge_SDn.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/Ge_SDn.txt)
-* Silicon: [Si_SDn.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/Si_SDn.txt)
-* Fluorine: [F_SDn.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/F_SDn.txt)
-* NaI: [NaI_SDn.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NaI_SDn.txt)
+* Xenon: [Xe_SDn.txt](https://raw.githubusercontent.com/cajohare/NeutrinoFog/master/data/floors/Xe_SDn.txt)
+* Germanium: [Ge_SDn.txt](https://raw.githubusercontent.com/cajohare/NeutrinoFog/master/data/floors/Ge_SDn.txt)
+* Silicon: [Si_SDn.txt](https://raw.githubusercontent.com/cajohare/NeutrinoFog/master/data/floors/Si_SDn.txt)
+* Fluorine: [F_SDn.txt](https://raw.githubusercontent.com/cajohare/NeutrinoFog/master/data/floors/F_SDn.txt)
+* NaI: [NaI_SDn.txt](https://raw.githubusercontent.com/cajohare/NeutrinoFog/master/data/floors/NaI_SDn.txt)
 
 ---
 
