@@ -1,7 +1,7 @@
 FC = gfortran
 FCFLAGS = -O3 -fopenmp -g -ffree-line-length-none -fbounds-check
-OBJFILES = params.o neldermead.o util.o LabFuncs.o like.o
-PROGRAMS = runDL runDL_2D
+OBJFILES = params.o neldermead.o util.o like.o
+PROGRAMS = runDL_2D
 
 all: clean $(OBJFILES) $(PROGRAMS)
 

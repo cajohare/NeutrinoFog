@@ -44,10 +44,12 @@ elif sys.argv[1]=='Si':
     sigma_max = 1e-33
 #==============================================================================#
 if sys.argv[1]=='NaI':
-    R_sig = 0.5*Nucs[0].IsotopicFraction*BinnedWIMPRate(E_th,E_max,ne,m_vals,Nucs[0],C_SDp,FormFactorGaussian,MeanInverseSpeed_SHM)\
-            + 0.5*Nucs[1].IsotopicFraction*BinnedWIMPRate(E_th,E_max,ne,m_vals,Nucs[1],C_SDp,FormFactorGaussian,MeanInverseSpeed_SHM)
-    R_nu = 0.5*BinnedNeutrinoRates(E_th,E_max,ne,Nucs[0],Flux_norm)\
-            +0.5*BinnedNeutrinoRates(E_th,E_max,ne,Nucs[1],Flux_norm)
+    f0 = 22/(22+127)
+    f1 = 127/(22+127)
+    R_sig = f0*Nucs[0].IsotopicFraction*BinnedWIMPRate(E_th,E_max,ne,m_vals,Nucs[0],C_SDp,FormFactorGaussian,MeanInverseSpeed_SHM)\
+            + f1*Nucs[1].IsotopicFraction*BinnedWIMPRate(E_th,E_max,ne,m_vals,Nucs[1],C_SDp,FormFactorGaussian,MeanInverseSpeed_SHM)
+    R_nu = f0*BinnedNeutrinoRates(E_th,E_max,ne,Nucs[0],Flux_norm)\
+            +f1*BinnedNeutrinoRates(E_th,E_max,ne,Nucs[1],Flux_norm)
 else:
     R_sig = 0
     for i in range(0,len(Nucs)):

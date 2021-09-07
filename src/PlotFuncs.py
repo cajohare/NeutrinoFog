@@ -415,7 +415,7 @@ def MakeLimitPlot_SDn(Annotations=True,Collected=False,\
 
 
 def MakeLimitPlot_SDp(Annotations=True,Collected=False,\
-                     xmin=0.1,xmax=1.0e4,ymax = 1.0e-34,ymin = 1.0e-46,\
+                     xmin=0.1,xmax=1.0e4,ymax = 1.0e-32,ymin = 1.0e-46,\
                      facecolor=[0.7111, 0.24352, 0.1755],edgecolor='darkred',alph=0.5,lfs=35,tfs=25,\
                      xlab=r"DM mass [GeV$/c^2$]",ylab=r"SD DM-proton cross section [cm$^2$]",NeutrinoLimits=False):
     pek = line_background(5,'k')
@@ -431,11 +431,11 @@ def MakeLimitPlot_SDp(Annotations=True,Collected=False,\
             plt.plot(dat[:,0], dat[:,1],color=edgecolor,linewidth=3,alpha=alph,zorder=0)
     else:
         if Annotations:
-            plt.text(200.0,8.0e-38,r"{\bf PICASSO}",color='tomato',fontsize=22,rotation=19)
-            plt.text(2500.0,1.7e-39,r"{\bf PICO60}",color='darkred',fontsize=20,rotation=20)
-            plt.text(2500.0,2.5e-38,r"{\bf PICO2L}",color='darkred',fontsize=20,rotation=20)
-            plt.text(200.0,3e-39,r"{\bf COUPP}",color=[1.0, 0.55, 0.41],fontsize=20,rotation=18)
-            plt.text(3000.0,3.5e-37,r"{\bf KIMS}",color=[0.81, 0.44, 0.69],fontsize=20,rotation=18)
+            plt.text(200.0,8.0e-38,r"{\bf PICASSO}",color='tomato',fontsize=21,rotation=19)
+            plt.text(2500.0,1.7e-39,r"{\bf PICO60}",color='darkred',fontsize=19,rotation=20)
+            plt.text(2500.0,2.5e-38,r"{\bf PICO2L}",color='darkred',fontsize=19,rotation=20)
+            plt.text(200.0,3e-39,r"{\bf COUPP}",color=[1.0, 0.55, 0.41],fontsize=19,rotation=18)
+            plt.text(3000.0,3.5e-37,r"{\bf KIMS}",color=[0.81, 0.44, 0.69],fontsize=19,rotation=18)
 
             if NeutrinoLimits:
                 plt.text(2000.0,3e-41,r"{\bf IceCube} $\tau\bar{\tau}$",color=[0.55, 0.71, 0.0],fontsize=20,rotation=35)

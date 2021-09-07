@@ -1,5 +1,5 @@
 #====================================Like.py===================================#
-# Created by Ciaran O'Hare 2020
+# Created by Ciaran O'Hare 2021
 
 # Contains functions for interfacing with the fortran code in src/like
 # the fortran likelihood code needs to be compiled first by running the make
@@ -12,7 +12,6 @@ from numpy import pi, sqrt, exp, zeros, size, shape, array, append, flipud, grad
 from numpy import trapz, interp, loadtxt, log10, log, savetxt, vstack, transpose
 from numpy import ravel,tile,mean,inf,nan,amin,amax
 from scipy.ndimage.filters import gaussian_filter1d
-#from scipy.optimize import minimize
 from scipy.integrate import cumtrapz
 from numpy.linalg import norm
 from scipy.special import gammaln
@@ -23,41 +22,6 @@ import WIMPFuncs
 import shlex
 import subprocess
 import pprint
-
-def DL_gradient(sig,Ex_vals,sig_f,filt=True,filt_width=3):
-    y = log10(sig)
-    yc = (y[1:]+y[0:-1])/2
-    dEx = log10(Ex_vals[1:])-log10(Ex_vals[0:-1])
-    dsig = y[1:]-y[0:-1]
-    if filt:
-        dy = gaussian_filter1d(dEx/dsig,filt_width)
-    else:
-        dy = dEx/dsig
-    dy_f = interp(log10(sig_f),flipud(yc),flipud(dy))
-    dy_f[sig_f<amin(10.0**y)] = -2.5
-    dy_f[sig_f>amax(10.0**y)] = nan
-    return dy_f
-
-def MakeNuFloor_2D(data,filt=True,filt_width=2,ns=400,sigma_min=1e-50,sigma_max=1e-41):
-    sig_f = logspace(log10(sigma_min),log10(sigma_max),ns)
-    sig = data[1:,1:]
-    sig[sig==0] = sigma_max
-    m = data[0,1:]
-    nm = size(m)
-    Ex_vals = data[1:,0]
-
-    dy = zeros((ns,nm))
-
-    for i in range(0,nm):
-        if filt:
-            sig_i = 10.0**gaussian_filter1d(log10(sig[:,i]),filt_width)
-        else:
-            sig_i = sig[:,i]
-        sig_i[0] = sig[0,i]
-        sig_i[-1] = sig[-1,i]
-        dy[:,i] = DL_gradient(sig_i,Ex_vals,sig_f,filt=filt,filt_width=filt_width)
-    return m,sig_f,dy
-
 
 def Floor_2D(data,filt=True,filt_width=3,Ex_crit=1e10):
     sig = data[1:,0]
@@ -149,11 +113,6 @@ def SaveNuData(inp,R_nu,Flux_norm,Flux_err):
     savetxt(recoil_dir+'RD_bg_'+inp+'.txt',dat2,header=hdr2)
     return
 #==============================================================================#
-
-
-
-
-#==============================================================================#
 # These are functions that call the compiled fortran code from python.
 def runDL_fort(inp,ex_min=1.0e-1,ex_max=1.0e7,n_ex=9,\
                   verbose=False):
@@ -204,7 +163,12 @@ def runDL_2D(inp,R_sig,R_nu,m_vals,ex_min,ex_max,n_ex,sigma_min,sigma_max,ns,Flu
     return
 
 
-#===================================USEFUL SUMS================================#
+
+
+
+
+
+
 def lnPF(Nob,Nex): # SUM OF LOG(POISSON PDF)
     # in principle there should be a log gamma here
     # (or a factorial if using real data)
@@ -220,3 +184,38 @@ def lnChi2(Nob,Nex): # SUM OF LOG(POISSON PDF)
 def lnGF(x,mu,sig): # SUM OF LOG(GAUSSIAN PDF)
     L = sum(-1.0*log(sig)-0.5*log(2.0*pi)-(x-mu)**2.0/(2.0*sig**2.0))
     return L
+
+
+# def DL_gradient(sig,Ex_vals,sig_f,filt=True,filt_width=3):
+#     y = log10(sig)
+#     yc = (y[1:]+y[0:-1])/2
+#     dEx = log10(Ex_vals[1:])-log10(Ex_vals[0:-1])
+#     dsig = y[1:]-y[0:-1]
+#     if filt:
+#         dy = gaussian_filter1d(dEx/dsig,filt_width)
+#     else:
+#         dy = dEx/dsig
+#     dy_f = interp(log10(sig_f),flipud(yc),flipud(dy))
+#     dy_f[sig_f<amin(10.0**y)] = -2.5
+#     dy_f[sig_f>amax(10.0**y)] = nan
+#     return dy_f
+#
+# def MakeNuFloor_2D(data,filt=True,filt_width=2,ns=400,sigma_min=1e-50,sigma_max=1e-41):
+#     sig_f = logspace(log10(sigma_min),log10(sigma_max),ns)
+#     sig = data[1:,1:]
+#     sig[sig==0] = sigma_max
+#     m = data[0,1:]
+#     nm = size(m)
+#     Ex_vals = data[1:,0]
+#
+#     dy = zeros((ns,nm))
+#
+#     for i in range(0,nm):
+#         if filt:
+#             sig_i = 10.0**gaussian_filter1d(log10(sig[:,i]),filt_width)
+#         else:
+#             sig_i = sig[:,i]
+#         sig_i[0] = sig[0,i]
+#         sig_i[-1] = sig[-1,i]
+#         dy[:,i] = DL_gradient(sig_i,Ex_vals,sig_f,filt=filt,filt_width=filt_width)
+#     return m,sig_f,dy

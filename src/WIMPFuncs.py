@@ -11,7 +11,6 @@ from numpy import cos, sin, arctan2, arccos, trapz, ones, log10, ndim, meshgrid
 from numpy import nan, isnan, column_stack, amin, amax, zeros_like
 from numpy.linalg import norm
 from scipy.special import erf
-from scipy.spatial import ConvexHull
 import Params
 from Params import m_p_keV, c_km, seconds2year, m_p_kg, GeV_2_kg, c_cm, Jan1
 

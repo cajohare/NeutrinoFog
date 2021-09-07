@@ -33,20 +33,6 @@ Msun = 2.0e30 # Solar mass (kg)
 bigG = 6.67e-11*(1.0e3)**(-3)
 
 #==============================================================================#
-# Set WIMP paramters, currently:
-# Mass
-# SI cross section
-class WIMP:
-    def __init__(self,m_chi,sigma_p):
-        self.Mass = m_chi
-        self.SICrossSection = sigma_p
-
-    def RecoilDistribution(self,RD):
-        self.RD = RD
-#==============================================================================#
-
-
-#==============================================================================#
 # Set Nucleus params
 class Nucleus:
     def __init__(self,xi,N,Z,J,Sp,Sn,name):

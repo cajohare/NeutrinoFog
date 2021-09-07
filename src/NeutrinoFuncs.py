@@ -11,15 +11,12 @@ from numpy import logspace, linspace, ones, asarray, histogram2d,column_stack
 from numpy import nan, isnan, amin, amax,argmin,argmax,cumsum, sum, around
 from numpy import savetxt, histogram, minimum, tile, arcsin, squeeze
 from numpy.linalg import norm
-import LabFuncs
-import Params
 from Params import nufile_root, nufile_dir, nuname, n_Enu_vals, recoil_dir
 from Params import mono, NuMaxEnergy, NuFlux, NuUnc, whichsolar, n_nu_tot
 from Params import m_p_keV, c_km, seconds2year, m_p_keV,m_e,m_e_GeV
 from Params import G_F_GeV, sinTheta_Wsq, N_A, Jan1, EarthRadius, eV2J
-from numpy import random
-from scipy.spatial import ConvexHull
-from tqdm import tqdm
+import LabFuncs
+import Params
 
 def MaxNuRecoilEnergies(Nuc): # Max recoil energies
     m_N = 0.93141941*(Nuc.MassNumber)*1.0e6

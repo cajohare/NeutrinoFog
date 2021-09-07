@@ -9,22 +9,23 @@ from WIMPFuncs import BinnedWIMPRate,MeanInverseSpeed_SHM,C_SI
 from LabFuncs import FormFactorHelm
 from Like import runDL_2D
 #==============================================================================#
-ne = 50
-nm = 200
-n_ex = 500
-ns = 500
-ex_min = 1e-5
-ex_max = 1e19
-m_vals = logspace(log10(0.1),log10(1.0e4),nm)
+ne = 50 # number of energy bins (anything >50 is accurate enough)
+nm = 200 # number of mass points
+n_ex = 500 # number of exposure points (I wouldn't go below 250)
+ns = 500 # number of cross section points (I wouldn't go below 250)
+ex_min = 1e-5 # minimum exposure
+ex_max = 1e19 # maximum exposure
+m_vals = logspace(log10(0.1),log10(1.0e4),nm) # mass points
 #==============================================================================#
-Flux_norm = NuFlux
-Flux_err = NuUnc
-E_th = 1.0e-4
-E_max = 200.0
-sigma_min = 1e-50
-sigma_max = 1e-43
-inp = 'NuFloor'+sys.argv[1]+'_detailed_SI'
+Flux_norm = NuFlux # See Params.py
+Flux_err = NuUnc # See Params.py
+E_th = 1.0e-4 # Threshold
+E_max = 200.0 # Max recoil energy
+sigma_min = 1e-50 # Minimum cross section to scan over
+sigma_max = 1e-43 # Maximum cross section to scan over
+inp = 'NuFloor'+sys.argv[1]+'_detailed_SI' # Filename to save data to
 #==============================================================================#
+# This is a bit ugly but works for now
 if sys.argv[1]=='Xe':
     Nuc = Xe131
 elif (sys.argv[1])=='Ar':

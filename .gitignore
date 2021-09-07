@@ -1,4 +1,6 @@
 notebooks/old/
+src/like/runDL
+src/like/runDL_2D
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
