@@ -5,7 +5,8 @@
 Code to reproduce the results from my paper arXiv:[2109.XXXX]
 
 [<img align="right" src="plots/plots_png/NuFloorExplanation.png" height="350">](https://github.com/cajohare/NeutrinoFog/raw/master/plots/plots_png/NuFloorExplanation.png)
-
+### &nbsp;
+### &nbsp;
 ---
 
 # Requirements
@@ -26,6 +27,7 @@ using one of the following scrips:
 * [`src/runNuFloor_SDp.py`](https://github.com/cajohare/NeutrinoFog/tree/main/src/runNuFloor_SDp.py) - SD (proton) limits
 * [`src/runNuFloor_SDn.py`](https://github.com/cajohare/NeutrinoFog/tree/main/src/runNuFloor_SDn.py) - SD (neutron) limits
 * [`src/runNuFloor_NuFluxUncertainties.py`](https://github.com/cajohare/NeutrinoFog/tree/main/src/runNuFloor_NuFluxUncertainties.py) - To test the effect of neutrino flux uncertainties
+
 Each takes about 30 minutes per target on my machine, but the resolutions can be lowered to generate them faster.
 
 # Contents
@@ -52,27 +54,27 @@ Each takes about 30 minutes per target on my machine, but the resolutions can be
 
 # If you just want .txt files for the neutrino floors themselves here they are:
 ## Spin independent
-* Xenon: [NeutrinoFloor_Xe_SI.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NeutrinoFloor_Xe_SI.txt)
-* Germanium: [NeutrinoFloor_Ge_SI.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NeutrinoFloor_Ge_SI.txt)
-* Argon: [NeutrinoFloor_Ar_SI.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NeutrinoFloor_Ar_SI.txt)
-* Helium: [NeutrinoFloor_He_SI.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NeutrinoFloor_He_SI.txt)
-* Fluorine: [NeutrinoFloor_F_SI.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NeutrinoFloor_F_SI.txt)
-* CaWO4: [NeutrinoFloor_CaWO4_SI.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NeutrinoFloor_CaWO4_SI.txt)
-* NaI: [NeutrinoFloor_NaI_SI.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NeutrinoFloor_NaI_SI.txt)
+* Xenon: [Xe_SI.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/Xe_SI.txt)
+* Germanium: [Ge_SI.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/Ge_SI.txt)
+* Argon: [Ar_SI.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/Ar_SI.txt)
+* Helium: [He_SI.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/He_SI.txt)
+* Fluorine: [F_SI.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/F_SI.txt)
+* CaWO4: [CaWO4_SI.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/CaWO4_SI.txt)
+* NaI: [NaI_SI.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NaI_SI.txt)
 
 ## Spin dependent (proton)
-* Xenon: [NeutrinoFloor_Xe_SDp.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NeutrinoFloor_Xe_SDp.txt)
-* Germanium: [NeutrinoFloor_Ge_SDp.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NeutrinoFloor_Ge_SDp.txt)
-* Silicon: [NeutrinoFloor_Si_SDp.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NeutrinoFloor_Si_SDp.txt)
-* Fluorine: [NeutrinoFloor_F_SDp.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NeutrinoFloor_F_SDp.txt)
-* NaI: [NeutrinoFloor_NaI_SDp.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NeutrinoFloor_NaI_SDp.txt)
+* Xenon: [Xe_SDp.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/Xe_SDp.txt)
+* Germanium: [Ge_SDp.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/Ge_SDp.txt)
+* Silicon: [Si_SDp.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/Si_SDp.txt)
+* Fluorine: [F_SDp.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/F_SDp.txt)
+* NaI: [NaI_SDp.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NaI_SDp.txt)
 
 ## Spin dependent (neutron)
-* Xenon: [NeutrinoFloor_Xe_SDn.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NeutrinoFloor_Xe_SDn.txt)
-* Germanium: [NeutrinoFloor_Ge_SDn.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NeutrinoFloor_Ge_SDn.txt)
-* Silicon: [NeutrinoFloor_Si_SDn.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NeutrinoFloor_Si_SDn.txt)
-* Fluorine: [NeutrinoFloor_F_SDn.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NeutrinoFloor_F_SDn.txt)
-* NaI: [NeutrinoFloor_NaI_SDn.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NeutrinoFloor_NaI_SDn.txt)
+* Xenon: [Xe_SDn.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/Xe_SDn.txt)
+* Germanium: [Ge_SDn.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/Ge_SDn.txt)
+* Silicon: [Si_SDn.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/Si_SDn.txt)
+* Fluorine: [F_SDn.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/F_SDn.txt)
+* NaI: [NaI_SDn.txt](https://github.com/cajohare/NeutrinoFog/raw/master/data/floors/NaI_SDn.txt)
 
 ---
 
