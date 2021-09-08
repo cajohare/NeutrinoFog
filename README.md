@@ -17,7 +17,8 @@ make -C src/like
 ```
 Then to run one of the python scripts do e.g.
 ```
-python src/runNuFloor_SI.py Xe
+cd src
+python runNuFloor_SI.py Xe
 ```
 using one of the following scrips:
 * [`src/runNuFloor_SI.py`](https://github.com/cajohare/NeutrinoFog/tree/main/src/runNuFloor_SI.py) - SI limits
