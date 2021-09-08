@@ -11,7 +11,7 @@ Code to reproduce the results from my paper arXiv:[2109.03116]
 * gfortran (or equivalent f95 compiler, but make sure to edit src/like/Makefile)
 
 # Running the code
-The heavy lifting of the likelihood analysis is done in a short fortran program (src/like/like.f95), which can be executed via python. To start, compile the fortran likelihood code by doing
+The heavy lifting of the likelihood analysis is done in a short fortran program (src/like/like.f95), which can be executed via python. To start, edit the `homedir` and `mylimitsdir` variables in [`src/like/params.f95`](https://github.com/cajohare/NeutrinoFog/tree/main/src/like/params.f95) to point to your local NeutrinoFog directory, then compile the fortran likelihood code by doing
 ```
 make -C src/like
 ```
