@@ -1,6 +1,5 @@
 module util
 	use params
-	!use pix_tools ! If using HEALpix uncomment this line
 	implicit none
 
 contains
@@ -8,18 +7,6 @@ contains
 
 !================================util.f95=============================================!
 ! Just contains a bunch of boring but useful/essential stuff
-
-! Contents:
-! 1. Memory allocation for likelihood analysis
-! Preallocate: Preallocate all signal and background recoil distribution (RD) arrays
-! Unallocate: Does the opposite
-
-! 2. Recoil distribution binning
-! Ebins: load in energy bins (nEbins between E_th and E_max)
-! Tbins: load in time bins (nTbins between Jan 1 and Dec 31)
-! pixels: load in direction bins (npix = 12*nside^2 pixels)
-
-! 3. Useful functions
 ! linspace: linearly spaced array of n values from x_lower to x_upper
 ! logspace: logarithmically spaced array of n values from x_lower to x_upper
 ! interp1D: interpolates set of points defined by (x,y) at a different set of x1 points
@@ -28,76 +15,6 @@ contains
 ! inverse: matrix inverse
 !=====================================================================================!
 
-
-
-
-
-!================================Memory Allocation====================================!
-!-------------------- Preallocate everything needed by likelihood---------------------!
-subroutine PreAllocate
-	allocate(E_bin_centers(nE_bins))
-	allocate(E_bin_edges(nE_bins+1))
-	nTot_bins = nE_bins
-	call E_bins
-	if (nT_bins.gt.0) then
-		nTot_bins = nE_bins*nT_bins
-	  call T_bins
-	end if
-	allocate(RD_wimp(nTot_bins))
-	allocate(RD_bg(nTot_bins,n_bg))
-	allocate(N_obs(nTot_bins))
-	write(*,*) 'Total number of bins = ',nTot_bins
-end subroutine
-
-!--------------------------------- Unallocate all of that ------------------------------!
-subroutine UnAllocate
-	deallocate(E_nu_all)
-	deallocate(Flux_all)
-	deallocate(R_bg_err)
-	deallocate(R_bg)
-	deallocate(E_bin_centers)
-	deallocate(E_bin_edges)
-	if (nT_bins.gt.0) THEN
- 		deallocate(T_bin_centers)
-	end if
-	deallocate(v_lab_all)
-	deallocate(RD_wimp)
-	deallocate(RD_bg)
-	deallocate(N_obs)
-	deallocate(solar)
-	deallocate(NuFlux)
-	deallocate(NuUnc)
-end subroutine
-
-
-
-
-
-
-!=====================================Setup Binning====================================!
-!------------------------------------- Energy bins-------------------------------------!
-subroutine E_bins
-	integer :: bin
-	double precision :: E_binwidth
-	E_binwidth = (log10(E_max)-log10(E_th))/(1.0d0*nE_bins)
-	do bin = 1,nE_bins
-	   E_bin_centers(bin) =10.0d0**(log10(E_th)+(bin-1)*E_binwidth + E_binwidth/2)
-	   E_bin_edges(bin) =10.0d0**(log10(E_th) + (bin-1)*E_binwidth)
-	end do
-	E_bin_edges(nE_bins+1) = E_max
-end subroutine E_bins
-
-!------------------------------------- Time bins---------------------------------------!
-subroutine T_bins
-	integer :: bin
-	double precision :: T_binwidth
-	allocate(T_bin_centers(nT_bins))
-	allocate(v_lab_all(nT_bins,3))
-	T_binwidth = 365.0d0/(1.0d0*nT_bins)
-	do bin = 1,nT_bins
-	   T_bin_centers(bin) = 255.75+(bin-1)*T_binwidth !+ T_binwidth/2
-	end do
-end subroutine
 
 
 !================================USEFUL FUNCTIONS=====================================!

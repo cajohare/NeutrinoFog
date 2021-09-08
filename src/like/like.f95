@@ -6,20 +6,21 @@ module like
 contains
 
 !====================================like.f95==================================!
-! Modeule for doing all of the Likelihood analysis
+! Module for doing all of the Likelihood analysis
 !
 ! Contents:
 !
 ! 1. Compute limits for input experiment
-! CYGNUSLimit: Generates discovery limit (DL) for CYGNUS (He and F)
-! GetLimits: Generates discovery limit for arbitrary experiment
-! DiscoveryLimit: Mass scan for Median discovery limit at 3sigma
-!
+! DisocveryLimit calculates a single DL for one Exposure
+! DiscoveryLimit_vs_MassCrossSection calculates the required exposure for a given grid of masses and cross sections
+
 ! 2. Likelihoods
 ! lnPF = sum over log(Poisson pdf)
 ! lnGF = sum over log(Gaussian pdf)
 ! llhood1 = signal+background likelihood
 ! llhood0 = background likelihood
+! llhood1_bigN = signal+background likelihood for when N is very large
+! llhood0_bigN = background likelihood for when N is very large
 !==============================================================================!
 
 
@@ -107,21 +108,34 @@ subroutine DiscoveryLimit_vs_MassCrossSection(m_vals,nm,sigma_p_vals,ns,ex_vals,
   double precision :: DL(ns,nm),m_vals(nm),ex_vals(n_ex),sigma_p_vals(ns)
   double precision :: N_tot_bg,D01,L0,L1,D_prev,ex_prev,var(2)
 
+  ! mvals = array of masses to scan over
+  ! sigma_p_vals = array of cross sections to scan over
+  ! ex_vals = array of exposures to try
+  ! DL = discovery limit for the 2D grid of masses and cross sections (output)
+
+  ! This routine scans over masses and cross sections to find the exposure needed for the median experiment to observe that cross section
+  ! Some parts of the mass, cross section grid will require insane exposures, so those parts are sped up by minimising a chi2 rather than a poisson Likelihood
+  ! The initial guess for the minimisation is X_in0 which is set to R_bg initially (background amplitudes), but then is held over through each iteration for speed
+
   DL = 0.0d0
+  ! Mass scan
   do i = 1,nm
     k1 = 1
     Exposure = 1.0
     m_chi = m_vals(i)
-		RD_wimp = RD_sig(i,:)/1.0d-45	! Call WIMP recoil distribution for each new mass
-    X_in0 = R_bg
+		RD_wimp = RD_sig(i,:)/1.0d-45	! Call WIMP recoil distribution for each new mass (RD_sig is always defined for sigma = 10^-45 cm^2)
+    X_in0 = R_bg ! Initial guess set of parameters
     if (sum(RD_wimp).gt.0.0) then
+      ! cross section scan
       do j=1,ns
-        sigma_p = sigma_p_vals(ns+1-j)
+        sigma_p = sigma_p_vals(ns+1-j) ! Go backwards through the cross sections since the larger ones require smaller exposures
         ex_prev = ex_min
         do k = k1,n_ex
           Exposure = ex_vals(k)
-          RD_wimp = RD_wimp*Exposure
-          RD_bg = RD_bg*Exposure
+          RD_wimp = RD_wimp*Exposure ! Always scale signal by exposure
+          RD_bg = RD_bg*Exposure ! Always scale background by exposure
+
+          ! Background events:
           N_exp_bg = 0.0d0
         	do si = 1,n_bg
         		N_exp_bg = N_exp_bg + RD_bg(:,si)
@@ -132,8 +146,8 @@ subroutine DiscoveryLimit_vs_MassCrossSection(m_vals,nm,sigma_p_vals,ns,ex_vals,
           if (sum(RD_wimp*sigma_p).gt.0.5d0) then	! Generally need >0.5 events to see DM
             N_exp = N_exp_bg + RD_wimp*sigma_p
             N_obs = N_exp  ! Observed=Expected for Asimov data
-            X_in1= (/log10(sigma_p),R_bg/)
-            step0 = R_bg_err*X_in0
+            X_in1= (/log10(sigma_p),R_bg/) ! signal+background model parameters
+            step0 = R_bg_err*X_in0 ! initial step size
 
               if (sum(RD_wimp*sigma_p).gt.1.0d3) then
                 call llhood1_bigN(X_in1,L1) ! Asimov data maximises likelihood at correct value
@@ -145,14 +159,14 @@ subroutine DiscoveryLimit_vs_MassCrossSection(m_vals,nm,sigma_p_vals,ns,ex_vals,
                 call MINIM(X_in0,step0,n_bg,L0,MAXFUNEVALS,IPRINT,STOPCR0,NLOOP,IQUAD,SIMP,VAR,llhood0,IFAULT0)
               end if
 
-            D01 = -2.0*(L1-L0)
+            D01 = -2.0*(L1-L0) ! Test statistic
             if (D01.ge.9.0d0) then ! Median 3sigma detection -> D = 9
               ! Do interpolation to find discovery limit cross section
               if (k.eq.1) then
                 DL(j,i) = ex_min
                 k1 = 1
               else
-                DL(j,i) = 10.0d0**(interp1D((/D_prev,D01/),(/log10(ex_prev),log10(Exposure)/),2,9.0d0))
+                DL(j,i) = 10.0d0**(interp1D((/D_prev,D01/),(/log10(ex_prev),log10(Exposure)/),2,9.0d0)) ! interpolate to find where DL crosses 9
                 k1 = k-1
               end if
               write(*,*) i,'of',nm,'|| m = ',m_chi,'|| sigma = ',sigma_p,'|| Ex = ',DL(j,i),'|| N_obs = ',sum(N_obs),L0,L1
