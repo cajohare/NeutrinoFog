@@ -1,8 +1,8 @@
-[![arXiv](https://img.shields.io/badge/arXiv-2105.04565-B31B1B.svg)](https://arxiv.org/abs/2109.XXXX)
+[![arXiv](https://img.shields.io/badge/arXiv-2109.03116-B31B1B.svg)](https://arxiv.org/abs/2109.03116)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
 # NeutrinoFog
-Code to reproduce the results from my paper arXiv:[2109.XXXX]
+Code to reproduce the results from my paper arXiv:[2109.03116]
 ---
 [<img align="right" src="plots/plots_png/NuFloorExplanation.png" height="350">](https://github.com/cajohare/NeutrinoFog/raw/master/plots/plots_png/NuFloorExplanation.png)
 
@@ -79,7 +79,7 @@ If you need any further assistance or have any questions, contact me at ciaran.a
 @article{OHare:2021xxx,
     author = "O'Hare, Ciaran A. J.",
     title = "{Fog on the horizon: a new definition of the neutrino floor for dark matter searches}",
-    eprint = "2109.XXXXX",
+    eprint = "2109.03116",
     archivePrefix = "arXiv",
     primaryClass = "hep-ph",
     month = "9",
