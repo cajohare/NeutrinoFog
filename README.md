@@ -75,11 +75,11 @@ Each takes about 30 minutes per target on my machine, but the resolutions can be
 
 ---
 
-If you need any further assistance or have any questions, contact me at ciaran.aj.ohare@gmail.com. And if you do use anything here please cite the paper, [O'Hare 2021](https://arxiv.org/abs/2109.?????)
+If you need any further assistance or have any questions, contact me at ciaran.aj.ohare@gmail.com. And if you do use anything here please cite the paper, [O'Hare 2021](https://arxiv.org/abs/2109.03116)
 ```
-@article{OHare:2021xxx,
+@article{OHare:2021utq,
     author = "O'Hare, Ciaran A. J.",
-    title = "{Fog on the horizon: a new definition of the neutrino floor for dark matter searches}",
+    title = "{Fog on the horizon: a new definition of the neutrino floor for direct dark matter searches}",
     eprint = "2109.03116",
     archivePrefix = "arXiv",
     primaryClass = "hep-ph",
