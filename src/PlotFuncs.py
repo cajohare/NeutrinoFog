@@ -242,7 +242,8 @@ def SILimits(ax,Annotations=True,facecolor=[0.0, 0.62, 0.38],edgecolor='darkgree
 
 def MakeLimitPlot_SI(Annotations=True,Collected=False,\
                      xmin=0.1,xmax=1.0e4,ymax=1.0e-36,ymin=1.0e-51,\
-                     facecolor=[0.0, 0.62, 0.38],edgecolor='darkgreen',alph=0.5,lfs=35,tfs=25,\
+                     facecolor=[0.0, 0.62, 0.38],edgecolor='darkgreen',edgecolor_collected='darkgray',\
+                     alph=0.5,lfs=35,tfs=25,\
                      xlab=r"DM mass [GeV$/c^2$]",ylab=r"SI DM-nucleon cross section [cm$^2$]"):
     pek = line_background(5,'k')
 
@@ -252,7 +253,7 @@ def MakeLimitPlot_SI(Annotations=True,Collected=False,\
     if Collected:
         AllLimits = loadtxt("../data/WIMPLimits/SI/AllLimits-2021.txt")
         plt.fill_between(AllLimits[:,0], AllLimits[:,1],edgecolor=None,y2=ymax,facecolor=facecolor,alpha=alph,zorder=0)
-        plt.plot(AllLimits[:,0], AllLimits[:,1],color=edgecolor,linewidth=3,alpha=alph,zorder=0)
+        plt.plot(AllLimits[:,0], AllLimits[:,1],color=edgecolor_collected,linewidth=3,alpha=alph,zorder=0.01)
         for lim in ['CRESST','CDMSLite','DarkSide','PandaX','Xenon1T','LUX','DEAP-3600','EDELWEISS','PICO60','PICO2L','COSINE-100','NEWS-G']:
             dat = loadtxt("../data/WIMPLimits/SI/"+lim+".txt")
             plt.plot(dat[:,0], dat[:,1],color=edgecolor,linewidth=3,alpha=alph,zorder=0)
@@ -375,7 +376,8 @@ def SDnLimits(ax,Annotations=True,facecolor=[0.0, 0.62, 0.38],edgecolor=[0.5, 0.
 
 def MakeLimitPlot_SDn(Annotations=True,Collected=False,\
                      xmin=0.1,xmax=1.0e4,ymax = 1.0e-32,ymin = 1.0e-46,\
-                     facecolor=[0.0, 0.62, 0.38],edgecolor='darkgreen',alph=0.5,lfs=35,tfs=25,\
+                     facecolor=[0.0, 0.62, 0.38],edgecolor='darkgreen',edgecolor_collected='darkgray',\
+                     alph=0.5,lfs=35,tfs=25,\
                      xlab=r"DM mass [GeV$/c^2$]",ylab=r"SD DM-neutron cross section [cm$^2$]",NeutrinoLimits=False):
     pek = line_background(5,'k')
 
@@ -384,7 +386,7 @@ def MakeLimitPlot_SDn(Annotations=True,Collected=False,\
     if Collected:
         AllLimits = loadtxt("../data/WIMPLimits/SDn/AllLimits-2021.txt")
         plt.fill_between(AllLimits[:,0], AllLimits[:,1],edgecolor=None,y2=ymax,facecolor=facecolor,alpha=alph,zorder=0)
-        plt.plot(AllLimits[:,0], AllLimits[:,1],color=edgecolor,linewidth=3,alpha=alph,zorder=0)
+        plt.plot(AllLimits[:,0], AllLimits[:,1],color=edgecolor_collected,linewidth=3,alpha=alph,zorder=0.01)
         for lim in ['PandaX','LUX','XENON100','XENON1T','CRESST','CDMSlite','PICASSO','CDMS']:
             dat = loadtxt("../data/WIMPLimits/SDn/"+lim+".txt")
             plt.plot(dat[:,0], dat[:,1],color=edgecolor,linewidth=3,alpha=alph,zorder=0)
@@ -416,7 +418,8 @@ def MakeLimitPlot_SDn(Annotations=True,Collected=False,\
 
 def MakeLimitPlot_SDp(Annotations=True,Collected=False,\
                      xmin=0.1,xmax=1.0e4,ymax = 1.0e-32,ymin = 1.0e-46,\
-                     facecolor=[0.7111, 0.24352, 0.1755],edgecolor='darkred',alph=0.5,lfs=35,tfs=25,\
+                     facecolor=[0.7111, 0.24352, 0.1755],edgecolor='darkred',edgecolor_collected='darkgray',\
+                     alph=0.5,lfs=35,tfs=25,\
                      xlab=r"DM mass [GeV$/c^2$]",ylab=r"SD DM-proton cross section [cm$^2$]",NeutrinoLimits=False):
     pek = line_background(5,'k')
 
@@ -425,7 +428,7 @@ def MakeLimitPlot_SDp(Annotations=True,Collected=False,\
     if Collected:
         AllLimits = loadtxt("../data/WIMPLimits/SDp/AllLimits-2021.txt")
         plt.fill_between(AllLimits[:,0], AllLimits[:,1],edgecolor=None,y2=ymax,facecolor=facecolor,alpha=alph,zorder=0)
-        plt.plot(AllLimits[:,0], AllLimits[:,1],color=edgecolor,linewidth=3,alpha=alph,zorder=0)
+        plt.plot(AllLimits[:,0], AllLimits[:,1],color=edgecolor_collected,linewidth=3,alpha=alph,zorder=0.01)
         for lim in ['PICASSO','PICO60','PICO2L','COUPP','KIMS']:
             dat = loadtxt("../data/WIMPLimits/SDp/"+lim+".txt")
             plt.plot(dat[:,0], dat[:,1],color=edgecolor,linewidth=3,alpha=alph,zorder=0)
